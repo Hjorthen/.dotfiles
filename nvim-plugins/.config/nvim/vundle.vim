@@ -4,4 +4,6 @@ call vundle#begin("~/.config/nvim/bundle")
 	Plugin 'VundleVim/Vundle.vim'
 	Plugin 'ctrlpvim/ctrlp.vim'
 	Plugin 'dense-analysis/ale'
+	Plugin 'vim-airline/vim-airline'
+    	Plugin 'hashivim/vim-terraform'
 call vundle#end()            
