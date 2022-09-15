@@ -8,5 +8,6 @@ filetype plugin indent on
 set shiftwidth=0
 set expandtab
 set tabstop=4
+set number " Line numbers
 
 colors deus
