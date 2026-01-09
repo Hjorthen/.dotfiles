@@ -26,7 +26,7 @@ if has('gui_running')
         " Remove GUI tabline
         set guioptions-=e
 endif
-if has('win32') || has('win32')
+if has('win32') || has('win64')
         set shell=powershell.exe
 endif
 
@@ -46,15 +46,21 @@ set noundofile
 
 
 " Tabs
-set softtabsstop=4
+set softtabstop=4
 set tabstop=4
 set expandtab
 set autoindent
 
 " Other
 set number
+" Reload unchanged files if they changed outside Vim
 set autoread
 
-if filereadable(expand('~\.vimrc-plugins'))
-    source ~\.vimrc-plugins
+" Include the plugins on Windows where we can't make symlinks without Admin
+" access
+let s:dir = resolve(expand('<sfile>:p:h'))
+
+let s:plugins_file = s:dir . '/.vimrc-plugins'
+if filereadable(s:plugins_file)
+    execute 'source ' . fnameescape(s:plugins_file)
 endif
