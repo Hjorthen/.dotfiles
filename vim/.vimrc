@@ -64,3 +64,6 @@ let s:plugins_file = s:dir . '/.vimrc-plugins'
 if filereadable(s:plugins_file)
     execute 'source ' . fnameescape(s:plugins_file)
 endif
+
+" :EditDotfiles
+command EditDotfiles execute 'edit ' . fnameescape(s:dir)
