@@ -8,6 +8,7 @@ set runtimepath^=$HOME/.vim
 syntax enable
 set background=dark
 colorscheme solarized
+let g:airline_theme = 'deus'
 
 if has('gui_running')
         " Default to en_US in case the menu is showing
