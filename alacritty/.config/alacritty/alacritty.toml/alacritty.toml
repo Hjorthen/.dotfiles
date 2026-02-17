@@ -1,0 +1,27 @@
+[window]
+decorations = "None"
+startup_mode = "Maximized"
+
+[colors.primary]
+background = "#26211c"   # warm espresso charcoal
+foreground = "#e8dcc8"   # warm sand
+
+[colors.normal]
+black   = "#3a332b"
+red     = "#c05a3d"      # terracotta
+green   = "#7a9e7e"      # soft sage (not mossy)
+yellow  = "#c8a75b"      # dry wheat
+blue    = "#6c8ea4"      # dusty denim
+magenta = "#a47c9b"      # muted plum
+cyan    = "#6f9f9a"      # desert teal
+white   = "#d8c8b0"
+
+[colors.bright]
+black   = "#5a5045"
+red     = "#d96b4a"
+green   = "#8fbf8f"
+yellow  = "#e0bb6a"
+blue    = "#82a9c2"
+magenta = "#c095b8"
+cyan    = "#86b8b3"
+white   = "#f3eadc"
