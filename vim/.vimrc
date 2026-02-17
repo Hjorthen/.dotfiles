@@ -1,4 +1,6 @@
-language messages English_UnitedStates
+if has('win32') || has('win64')
+	language messages English_UnitedStates
+endif
 let $LANG = 'en_US'
 
 " Use .vim as runtime path
@@ -7,7 +9,7 @@ set runtimepath^=$HOME/.vim
 " Theming
 syntax enable
 set background=dark
-colorscheme solarized
+silent! colorscheme solarized
 let g:airline_theme = 'deus'
 
 if has('gui_running')
