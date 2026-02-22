@@ -60,12 +60,15 @@ set autoread
 
 " Include the plugins on Windows where we can't make symlinks without Admin
 " access
-let s:dir = resolve(expand('<sfile>:p:h'))
+let s:dir = fnamemodify(resolve(expand('<sfile>:p')), ":h")
 
 let s:plugins_file = s:dir . '/.vimrc-plugins'
 if filereadable(s:plugins_file)
     execute 'source ' . fnameescape(s:plugins_file)
 endif
 
+if !empty($WAYLAND_DISPLAY)
+endif
+
 " :EditDotfiles
-command EditDotfiles execute 'edit ' . fnameescape(s:dir)
+command DotfilesEdit execute 'edit ' . fnameescape(s:dir)
