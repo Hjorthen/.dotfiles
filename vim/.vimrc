@@ -68,6 +68,7 @@ if filereadable(s:plugins_file)
 endif
 
 if !empty($WAYLAND_DISPLAY)
+    source ~/.vim-wl-clipboard
 endif
 
 " :EditDotfiles
