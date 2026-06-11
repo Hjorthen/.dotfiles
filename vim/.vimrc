@@ -1,4 +1,6 @@
-language messages English_UnitedStates
+if has('win32') || has('win64')
+	language messages English_UnitedStates
+endif
 let $LANG = 'en_US'
 
 " Use .vim as runtime path
@@ -7,7 +9,7 @@ set runtimepath^=$HOME/.vim
 " Theming
 syntax enable
 set background=dark
-colorscheme solarized
+silent! colorscheme solarized
 let g:airline_theme = 'deus'
 
 if has('gui_running')
@@ -58,12 +60,16 @@ set autoread
 
 " Include the plugins on Windows where we can't make symlinks without Admin
 " access
-let s:dir = resolve(expand('<sfile>:p:h'))
+let s:dir = fnamemodify(resolve(expand('<sfile>:p')), ":h")
 
 let s:plugins_file = s:dir . '/.vimrc-plugins'
 if filereadable(s:plugins_file)
     execute 'source ' . fnameescape(s:plugins_file)
 endif
 
+if !empty($WAYLAND_DISPLAY)
+    source ~/.vim-wl-clipboard
+endif
+
 " :EditDotfiles
-command EditDotfiles execute 'edit ' . fnameescape(s:dir)
+command DotfilesEdit execute 'edit ' . fnameescape(s:dir)

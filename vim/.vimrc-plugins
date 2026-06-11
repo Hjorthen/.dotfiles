@@ -22,6 +22,7 @@ if has('win64')
     let g:plug_home = s:fix_plug_path($HOME . '/.vim/plugged')
 endif
 
+" Vim plugins
 call plug#begin()
 Plug 'tpope/vim-vinegar'
 Plug 'liuchengxu/vim-which-key'
