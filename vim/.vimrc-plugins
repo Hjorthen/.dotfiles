@@ -1,7 +1,32 @@
 " Vim plugins
+" From vim-plug documentation: Modify your vimrc to use g:plug_home instead of passing a filepath to plug#begin so that vim-plug does not convert it back to Unix paths
+if has('win64')
+    function! s:fix_plug_path(path)
+      let s:cygpath = $HOME . '/AppData/Local/Programs/Git/usr/bin/cygpath.exe'
+
+
+      if executable(s:cygpath)
+        return substitute( system('"' . s:cygpath . '" -m ' . a:path), '\r*\n\+$', '', '')
+      else
+        echoerr 'cygpath.exe not found at expected path: ' . s:cygpath
+      endif
+      return a:path
+    endfunction
+else
+    function! s:fix_plug_path(path)
+        return a:path
+    endfunction
+endif
+
+if has('win64')
+    let g:plug_home = s:fix_plug_path($HOME . '/.vim/plugged')
+endif
+
 call plug#begin()
 Plug 'tpope/vim-vinegar'
 Plug 'liuchengxu/vim-which-key'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'davidhalter/jedi-vim'
+Plug 'dense-analysis/ale'
 call plug#end()
